@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>贪吃蛇游戏 - 主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="home-container">
+        <h1>贪吃蛇游戏</h1>
+        <div class="menu">
+            <div class="difficulty-selector">
+                <h2>选择难度</h2>
+                <select id="difficulty">
+                    <option value="easy">简单</option>
+                    <option value="normal" selected>普通</option>
+                    <option value="hard">困难</option>
+                </select>
+            </div>
+            <button id="startGameBtn" class="start-btn">开始游戏</button>
+            <div class="high-scores">
+                <h2>最高分</h2>
+                <div>简单模式: <span id="easyHighScore">0</span></div>
+                <div>普通模式: <span id="normalHighScore">0</span></div>
+                <div>困难模式: <span id="hardHighScore">0</span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('startGameBtn').addEventListener('click', () => {
+            const difficulty = document.getElementById('difficulty').value;
+            window.location.href = `./game.html?difficulty=${difficulty}`;
+        });
+
+        // 显示各难度的最高分
+        ['easy', 'normal', 'hard'].forEach(diff => {
+            const score = localStorage.getItem(`snakeHighScore_${diff}`) || 0;
+            document.getElementById(`${diff}HighScore`).textContent = score;
+        });
+    </script>
+</body>
+</html> 

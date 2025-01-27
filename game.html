@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="score">得分: <span id="current-score">0</span></div>
+            <div class="high-score">最高分: <span id="high-score">0</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="controls">
+            <button id="startBtn">开始游戏</button>
+            <button id="pauseBtn">暂停</button>
+        </div>
+        <div class="mobile-controls">
+            <div class="direction-pad">
+                <button id="upBtn" class="direction-btn up">↑</button>
+                <div class="middle-row">
+                    <button id="leftBtn" class="direction-btn left">←</button>
+                    <button id="rightBtn" class="direction-btn right">→</button>
+                </div>
+                <button id="downBtn" class="direction-btn down">↓</button>
+            </div>
+        </div>
+    </div>
+    <div id="gameOver" class="modal hidden">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p>你的得分: <span id="finalScore">0</span></p>
+            <div class="game-over-buttons">
+                <button id="restartBtn">重新开始</button>
+                <button id="homeBtn">返回主页</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
